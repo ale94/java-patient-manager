@@ -10,4 +10,10 @@ public class PatientService {
     public void create(Patient patient) {
         this.patientDAO.createPatient(patient);
     }
+
+    public void getAll() {
+        for (Patient patient : patientDAO.getPatients()) {
+            System.out.println(patient);
+        }
+    }
 }

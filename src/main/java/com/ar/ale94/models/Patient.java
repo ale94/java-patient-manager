@@ -2,7 +2,7 @@ package com.ar.ale94.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
 public class Patient implements Serializable {
@@ -73,7 +73,6 @@ public class Patient implements Serializable {
         sb.append(", document='").append(document).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", birthDate=").append(birthDate);
-        sb.append(", quotes=").append(quotes);
         sb.append('}');
         return sb.toString();
     }

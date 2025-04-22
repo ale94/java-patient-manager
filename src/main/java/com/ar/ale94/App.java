@@ -4,6 +4,7 @@ import com.ar.ale94.models.Patient;
 import com.ar.ale94.services.PatientService;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class App {
     public static void main(String[] args) {
@@ -13,6 +14,8 @@ public class App {
         // CREAR PACIENTE
         Patient p1 = new Patient(null, "Marcos", "11111111", "lll@gmail.com", LocalDate.now());
         patientService.create(p1);
+
+        patientService.getAll();
 
 
     }
