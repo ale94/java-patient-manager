@@ -65,24 +65,22 @@ public class PatientDAO {
         return null;
     }
 
-//    public void updateProduct(Product product, int id) {
-//        String sql = "UPDATE products SET name = ?, price = ?, quantity = ? WHERE id = ?";
-//        try (Connection conn = DatabaseConnection.getConnection();
-//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-//            pstmt.setString(1, product.getName());
-//            pstmt.setDouble(2, product.getPrice());
-//            pstmt.setInt(3, product.getQuantity());
-//            pstmt.setInt(4, id);
-//            int affectedRows = pstmt.executeUpdate();
-//            if (affectedRows > 0) {
-//                System.out.println("Producto actualizado exitosamente.");
-//            } else {
-//                System.out.println("No se encontró el producto con el id: " + product.getId());
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void updatePatient(Patient patient, Long id) {
+        String sql = "UPDATE patient SET name = ?, email = ?, WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, patient.getName());
+            pstmt.setString(2, patient.getEmail());
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Paciente actualizado exitosamente.");
+            } else {
+                System.out.println("No se encontró el paciente con el id: " + patient.getId());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 //
 //    public void deleteProduct(int id) {
 //        String sql = "DELETE FROM products WHERE id = ?";

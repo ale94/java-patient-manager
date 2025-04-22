@@ -21,5 +21,9 @@ public class PatientService {
         System.out.println(this.patientDAO.getPatientById(id));
     }
 
+    public void update(Patient patient, Long id) {
+        this.patientDAO.updatePatient(patient, id);
+    }
+
 
 }

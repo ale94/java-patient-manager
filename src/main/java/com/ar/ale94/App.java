@@ -1,6 +1,7 @@
 package com.ar.ale94;
 
 import com.ar.ale94.models.Patient;
+import com.ar.ale94.repositories.PatientDAO;
 import com.ar.ale94.services.PatientService;
 
 import java.time.LocalDate;
@@ -10,12 +11,11 @@ public class App {
     public static void main(String[] args) {
 
         PatientService patientService = new PatientService();
+        PatientDAO patientDAO = new PatientDAO();
 
         // CREAR PACIENTE
         //patientService.create(createPatient());
 
-//        patientService.getAll();
-        patientService.getById(5L);
 
 
     }
@@ -32,5 +32,23 @@ public class App {
         var email = scanner.nextLine();
 
         return new Patient(null, name, dni, email, LocalDate.now());
+    }
+
+    public static Patient updatePatient(PatientDAO patientDAO, PatientService patientService) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite el id del paciente: ");
+        var id = Long.parseLong(scanner.nextLine());
+
+        System.out.print("Digite el nuevo nombre del paciente: ");
+        var name = scanner.nextLine();
+
+        System.out.print("Digite el nuevo correo: ");
+        var email = scanner.nextLine();
+
+        Patient patient = patientDAO.getPatientById(id);
+        patient.setName(name);
+        patient.setEmail(email);
+        patientService.update(patient, id);
+        return patient;
     }
 }
