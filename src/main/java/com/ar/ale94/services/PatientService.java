@@ -16,4 +16,10 @@ public class PatientService {
             System.out.println(patient);
         }
     }
+
+    public void getById(Long id) {
+        System.out.println(this.patientDAO.getPatientById(id));
+    }
+
+
 }

@@ -4,7 +4,7 @@ import com.ar.ale94.models.Patient;
 import com.ar.ale94.services.PatientService;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -12,11 +12,25 @@ public class App {
         PatientService patientService = new PatientService();
 
         // CREAR PACIENTE
-        Patient p1 = new Patient(null, "Marcos", "11111111", "lll@gmail.com", LocalDate.now());
-        patientService.create(p1);
+        //patientService.create(createPatient());
 
-        patientService.getAll();
+//        patientService.getAll();
+        patientService.getById(5L);
 
 
+    }
+
+    public static Patient createPatient() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite el nombre del paciente: ");
+        var name = scanner.nextLine();
+
+        System.out.print("Digite el numero de dni: ");
+        var dni = scanner.nextLine();
+
+        System.out.print("Digite el correo: ");
+        var email = scanner.nextLine();
+
+        return new Patient(null, name, dni, email, LocalDate.now());
     }
 }
