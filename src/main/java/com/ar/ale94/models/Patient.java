@@ -2,6 +2,8 @@ package com.ar.ale94.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Set;
 
 public class Patient implements Serializable {
 
@@ -10,6 +12,7 @@ public class Patient implements Serializable {
     private String document;
     private String email;
     private LocalDate birthDate;
+    private Set<Quote> quotes;
 
     public Patient() {
     }
@@ -60,5 +63,18 @@ public class Patient implements Serializable {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Patient{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", document='").append(document).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", birthDate=").append(birthDate);
+        sb.append(", quotes=").append(quotes);
+        sb.append('}');
+        return sb.toString();
     }
 }

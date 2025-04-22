@@ -9,6 +9,7 @@ public class Quote implements Serializable {
     private LocalDateTime time;
     private String specialty;
     private String doctor;
+    private int pacienteId;
 
     public Quote() {
     }
@@ -50,5 +51,17 @@ public class Quote implements Serializable {
 
     public void setDoctor(String doctor) {
         this.doctor = doctor;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Quote{");
+        sb.append("id=").append(id);
+        sb.append(", time=").append(time);
+        sb.append(", specialty='").append(specialty).append('\'');
+        sb.append(", doctor='").append(doctor).append('\'');
+        sb.append(", pacienteId=").append(pacienteId);
+        sb.append('}');
+        return sb.toString();
     }
 }
