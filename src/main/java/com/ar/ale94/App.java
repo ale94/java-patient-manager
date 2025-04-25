@@ -14,13 +14,12 @@ public class App {
         PatientDAO patientDAO = new PatientDAO();
 
         // CREAR PACIENTE
-        //patientService.create(createPatient());
-
+        createPatient(patientService);
 
 
     }
 
-    public static Patient createPatient() {
+    public static void createPatient(PatientService patientService) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite el nombre del paciente: ");
         var name = scanner.nextLine();
@@ -31,7 +30,7 @@ public class App {
         System.out.print("Digite el correo: ");
         var email = scanner.nextLine();
 
-        return new Patient(null, name, dni, email, LocalDate.now());
+        patientService.create(new Patient(null, name, dni, email, LocalDate.now()));
     }
 
     public static Patient updatePatient(PatientDAO patientDAO, PatientService patientService) {
